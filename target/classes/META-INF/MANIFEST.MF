@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: william
+Build-Jdk: 11.0.4
+Implementation-Title: sisHospital
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: br.com.william
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/sisHospital/
+Created-By: Maven Integration for Eclipse
+
