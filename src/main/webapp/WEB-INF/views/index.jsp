@@ -12,6 +12,13 @@
 	</head>
 
 	<body>
-		<h1>TITULO</h1> 
+		<div align="center">
+			<h1>Sistema Hospital</h1>
+			<br />
+			
+			<form id="pacientes" action="/pacientes" method = "GET">
+				<button type="submit">Paciêntes</button>
+			</form>
+		</div>
 	</body>
 </html>

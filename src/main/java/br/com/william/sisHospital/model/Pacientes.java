@@ -16,13 +16,13 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Pacientes {
 	
-	@Id @NotEmpty(message = "cpf cannot be Empty")
+	@Id @NotEmpty
 	private String cpf;
 
-    @NotEmpty(message = "Name cannot be Empty")
+    @NotEmpty
 	private String nome;
 	
-    @NotNull(message = "Convenio cannot be null")
+    @NotNull
 	private Integer convenio;
 }
 

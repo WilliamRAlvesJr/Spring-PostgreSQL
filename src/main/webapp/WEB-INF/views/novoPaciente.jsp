@@ -8,28 +8,34 @@
 		<style>
 		</style>
 
-		<title>Sistema Hospital - Novo Paciente</title>
+		<title>Sistema Hospital - Adicionar/Editar Paciente</title>
 	</head>
 
 	<body>
 		<div align="center">
-        <h1>Novo Paciente</h1>
+        <h1>Adicionar/Editar Paciente</h1>
+        <br />
+        <form id="error" method = "GET">
+        	<td width="10px"><input name="erro" value="${erro}"
+        	style="color: red;background: white;width: 500px;border: 100px; text-align: center;" /></td>
+        </form>
         <br />
 	        <form id="pacientes" action="/pacientes/salvar" method = "POST" modelAttribute="pacientes">
 				<table border="0" cellpadding="10">
+					
 					<tr>
 						<td>CPF: </td>
-						<td><input name="cpf"/></td>
+						<td><input name="cpf" value="${cpf}"/></td>
 					</tr>
 			
 					<tr>
 						<td>Nome: </td>
-						<td><input name="nome"/></td>
+						<td><input name="nome" value="${nome}"/></td>
 					</tr>
 					
 					<tr>
 						<td>Codigo do Convênio: </td>
-						<td><input name="convenio"/></td>
+						<td><input name="convenio" value="${convenio}"/></td>
 					</tr>
 					
 			        <tr>

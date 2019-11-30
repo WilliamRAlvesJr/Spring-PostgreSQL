@@ -1,0 +1,26 @@
+﻿--DROP TYPE IF EXISTS Pessoa_TY;
+CREATE TYPE Pessoa_TY AS (
+	cpf VARCHAR(11),
+	nome VARCHAR(30)
+);
+--DROP TABLE IF EXISTS Pessoas;
+CREATE TABLE Pessoas of Pessoa_TY (PRIMARY KEY (cpf));
+SELECT * FROM Pessoas
+
+--DROP TYPE IF EXISTS Convenio_TY;
+CREATE TYPE Convenio_TY AS (
+	codigo INT,
+	nome VARCHAR(30)
+);
+--DROP TABLE IF EXISTS Convenios;
+CREATE TABLE Convenios of Convenio_TY (PRIMARY KEY (codigo));
+SELECT * FROM Convenios
+
+--DROP TABLE IF EXISTS Pacientes;
+CREATE TABLE Pacientes (
+	convenio INT REFERENCES Convenios (codigo)
+) INHERITS(Pessoas);
+SELECT * FROM Pacientes
+
+
+

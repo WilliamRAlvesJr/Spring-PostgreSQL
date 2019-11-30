@@ -17,29 +17,36 @@
 		<div align="center">
         <h1>Pacientes</h1>
         <br/>
-        	<table>
-   				<tr>
-			    	<td>| CPF</td>
-			    	<td>| NOME |</td>
-			    	<td>CONVENIO |</td>
-		    	</tr>
-	    	</table>
-       		<c:forEach items="${pacientes}" var="paciente">
-       			<table>
-       				<tr>
-				    	<td><c:out value="| ${paciente.cpf}"/></td>
-				    	<td><c:out value="| ${paciente.nome} |"/></td>
-				    	<td><c:out value="${paciente.convenio} |"/></td>
-				    </tr>
-			    </table>
-			</c:forEach>
-			
-			<form id="pacientes" action="/pacientes/novo-paciente" method = "GET">
+			<table width="800" border="1">
+				<tr>
+					<td>CPF</td>
+					<td>Nome</td>
+					<td>Convênio</td>
+				</tr>
+				<c:forEach var="paciente" items="${pacientes}">
+					<tr>
+						<form id="excluir" action="/pacientes" method="POST" modelAttribute="pacienteSelecionado">
+							<td width="10px"><input name="cpf" value="${paciente.cpf}" readonly/></td>
+							<td width="10px"><input name="nome" value="${paciente.nome}" readonly/></td>
+							<td width="10px"><input name="convenio" value="${paciente.convenio}" readonly/></td>
+							<td width="10px">
+								<input type="submit" value="Excluír" onclick="form.action='/pacientes/excluir';"/>
+							</td>
+							<td width="10px">
+								<input type="submit" value="Editar" onclick="form.action='/pacientes/editar-paciente';"/>
+							</td>
+						</form>
+					</tr>
+				</c:forEach>
+			</table>
+			<br/>
+
+			<form id="novoPacientes" action="/pacientes/novo-paciente" method = "GET">
 				<button type="submit">Novo Paciênte</button>
 			</form>
 			
-			<form id="pacientes" action="/pacientes/excluir-paciente" method = "GET">
-				<button type="submit">Excluír Paciênte</button>
+			<form id="index" action="/" method = "GET">
+				<button type="submit">Indice</button>
 			</form>
 		</div>
 	</body>

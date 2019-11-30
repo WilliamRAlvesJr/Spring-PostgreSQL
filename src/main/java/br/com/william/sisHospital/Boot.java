@@ -19,10 +19,6 @@ public class Boot {
     CommandLineRunner init(PacientesRepository repository) {
     	return (args) -> {
 	    	Pacientes p = new Pacientes();
-//	    	p.setCpf("12345123451");
-//	    	p.setNome("Maria Antonia");
-//	    	p.setConvenio(2);
-//	    	repository.save(p);    
     	};
     }
 }

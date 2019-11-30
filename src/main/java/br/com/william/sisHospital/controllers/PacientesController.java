@@ -41,7 +41,6 @@ public class PacientesController {
    
    @PostMapping("/salvar")
    public ModelAndView salvar(@ModelAttribute("pacientes") @Valid Pacientes pacientes, BindingResult bindingResult) {
-	   
 	   Pacientes p = new Pacientes();
 	   p.setCpf(pacientes.getCpf());
 	   p.setNome(pacientes.getNome());
@@ -54,28 +53,27 @@ public class PacientesController {
 	   if (violations.size() > 0) {
 		   for (ConstraintViolation<Pacientes> violation : violations) {
 			   System.err.println(violation.getMessage());
-			}
-            return novoPaciente();
-	   } else {
-		   repository.save(p);
+		   }
+		   ModelAndView modView = novoPaciente();
+		   modView.addObject("erro", "Atenção, o comando não pode ser executa. Porfavor verifique.");
+		   return modView;
 	   }
+
+	   repository.save(p);
 	   return consultaPacientes();
    }
    
-   @GetMapping("excluir-paciente")
-   public ModelAndView excluirPaciente() {
-	   return new ModelAndView("excluirPaciente");
-   }
-   
    @PostMapping("/excluir")
-   public ModelAndView excluir(@ModelAttribute("excluirPaciente") Pacientes pacientes) {
+   public ModelAndView excluir(@ModelAttribute("pacienteSelecionado") Pacientes paciente) {
 	   Pacientes p = new Pacientes();
-	   p.setCpf(pacientes.getCpf());
-	   p.setNome(pacientes.getNome());
-	   p.setConvenio(pacientes.getConvenio());
-	   repository.delete(p);
+	   if (paciente != null && paciente.getCpf() != null) {
+		   p.setCpf(paciente.getCpf());
+		   p.setNome(paciente.getNome());
+		   p.setConvenio(paciente.getConvenio());
 	   
-       return consultaPacientes();
+		   repository.delete(p);
+	   }
+	   return consultaPacientes();
    }
    
    @GetMapping
@@ -89,5 +87,15 @@ public class PacientesController {
    @GetMapping("novo-paciente")
    public ModelAndView novoPaciente() {
 	   return new ModelAndView("novoPaciente");
+   }
+   
+   @PostMapping("editar-paciente")
+   public ModelAndView editarPaciente(@ModelAttribute("pacienteSelecionado") Pacientes paciente) {
+	   ModelAndView modView = novoPaciente();
+	   modView.addObject("cpf", paciente.getCpf());
+	   modView.addObject("nome", paciente.getNome());
+	   modView.addObject("convenio", paciente.getConvenio());
+
+	   return modView;
    }
 } 
