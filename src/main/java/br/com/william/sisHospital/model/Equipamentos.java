@@ -14,12 +14,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Convenios {
+public class Equipamentos {
 	
 	@Id @NotNull
 	private Integer codigo;
 
 	@NotEmpty
 	private String nome;
+	
 }
 

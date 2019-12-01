@@ -1,7 +1,9 @@
 package br.com.william.sisHospital.model;
 
-import javax.persistence.Entity;
+import java.io.Serializable;
+
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -13,13 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-public class Convenios {
-	
-	@Id @NotNull
-	private Integer codigo;
+@MappedSuperclass
+public abstract class Pessoas implements Serializable {
 
+	@Id @NotNull
+	protected String cpf;
+	
+	@Id @NotEmpty
+	protected String telefones;
+	
 	@NotEmpty
-	private String nome;
+	protected String nome;
+
 }
 

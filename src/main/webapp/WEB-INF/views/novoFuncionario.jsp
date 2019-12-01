@@ -12,25 +12,35 @@
 				background-size: cover;
 			}
 		</style>
-		<title>Sistema Hospital - Adicionar/Editar Paciente</title>
+		<title>Sistema Hospital - Adicionar/Editar Funcionario</title>
 		<link href="base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body>
 		<div align="center">
-        	<h1>Adicionar/Editar Paciente</h1>
+        	<h1>Adicionar/Editar Funcionario</h1>
         	<br />
         	<form id="error" method = "GET">
-        		<td width="10px"><input name="erro" value="${erro}" readonly
+        		<td width="10px"><input name="erro" value="${erro}" readonly 
         			style="color: red;font-weight: bold;background: border-box;width: 500px;border: 100px; text-align: center;" /></td>
         	</form>
         	<br />
-	        <form id="pacientes" action="/pacientes/salvar" method = "POST" modelAttribute="pacientes">
+	        <form id="funcionarios" action="/funcionarios/salvar" method = "POST" modelAttribute="funcionarios">
 				<table border="0" cellpadding="10">
-					
+
 					<tr>
 						<td>CPF: </td>
 						<td><input name="cpf" value="${cpf}"/></td>
+					</tr>
+					
+					<tr>
+						<td>Código: </td>
+						<td><input name="codigo" value="${codigo}"/></td>
+					</tr>
+					
+					<tr>
+						<td>Telefones: </td>
+						<td><input name="telefones" value="${telefones}"/></td>
 					</tr>
 			
 					<tr>
@@ -39,8 +49,13 @@
 					</tr>
 					
 					<tr>
-						<td>Codigo do Convênio: </td>
-						<td><input name="convenio" value="${convenio}"/></td>
+						<td>Data de Admissão: </td>
+						<td><input name="dtAdmissao" value="${dtAdmissao}"/></td>
+					</tr>
+					
+					<tr>
+						<td>Setor: </td>
+						<td><input name="setor" value="${setor}"/></td>
 					</tr>
 					
 			        <tr>
@@ -49,8 +64,8 @@
 		        </table>
 	        </form>
 	        
-	        <form id="pacientes" action="/pacientes" method = "GET">
-				<button type="submit">Paciêntes</button>
+	        <form id="funcionarios" action="/funcionarios" method = "GET">
+				<button type="submit">Funcionarios</button>
 			</form>
 		</div>
 	</body>

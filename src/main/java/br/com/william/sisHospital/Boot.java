@@ -18,7 +18,6 @@ public class Boot {
     @Bean
     CommandLineRunner init(PacientesRepository repository) {
     	return (args) -> {
-	    	Pacientes p = new Pacientes();
     	};
     }
 }

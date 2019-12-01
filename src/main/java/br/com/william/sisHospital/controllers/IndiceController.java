@@ -23,10 +23,10 @@ import br.com.william.sisHospital.repository.PacientesRepository;
 
 @RestController
 @RequestMapping({"/"})
-public class IndexController {
+public class IndiceController {
 
    @GetMapping
    public ModelAndView index() {
-	   return new ModelAndView("index");
+	   return new ModelAndView("indice");
    }	
 } 

@@ -14,31 +14,29 @@
 				background-size: cover;
 			}
 		</style>
-		<title>Sistema Hospital - Pacientes</title>
+		<title>Sistema Hospital - Convênios</title>
 	    <link href="base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body background="img_girl.jpg">
 		<div align="center">
-        <h1>Pacientes</h1>
+        <h1>Convênios</h1>
         <br/>
 			<table border="1">
 				<tr>
-					<td><strong>CPF</strong></td>
+					<td><strong>Código</strong></td>
 					<td><strong>Nome</strong></td>
-					<td><strong>Convênio</strong></td>
 				</tr>
-				<c:forEach var="paciente" items="${pacientes}">
+				<c:forEach var="convenio" items="${convenios}">
 					<tr>
-						<form id="excluir" action="/pacientes" method="POST" modelAttribute="pacienteSelecionado">
-							<td width="10px"><input name="cpf" value="${paciente.cpf}" readonly/></td>
-							<td width="10px"><input name="nome" value="${paciente.nome}" readonly/></td>
-							<td width="10px"><input name="convenio" value="${paciente.convenio}" readonly/></td>
+						<form id="excluir" action="/convenios" method="POST" modelAttribute="convenioSelecionado">
+							<td width="10px"><input name="codigo" value="${convenio.codigo}" readonly/></td>
+							<td width="10px"><input name="nome" value="${convenio.nome}" readonly/></td>
 							<td style="padding: 7px;">
-								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/pacientes/excluir';"/>
+								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/convenios/excluir';"/>
 							</td>
 							<td style="padding: 7px;">
-								<input type="image" alt="submit" src="../images/Inserir.png" id="editar" type="submit" onclick="form.action='/pacientes/editar-paciente';"/>
+								<input type="image" alt="submit" src="../images/Inserir.png" id="editar" type="submit" onclick="form.action='/convenios/editar-convenio';"/>
 							</td>
 						</form>
 					</tr>
@@ -46,8 +44,8 @@
 			</table>
 			<br/>
 
-			<form id="novoPacientes" action="/pacientes/novo-paciente" method = "GET">
-				<button type="submit">Novo Paciente</button>
+			<form id="novoConvenio" action="/convenios/novo-convenio" method = "GET">
+				<button type="submit">Novo Convênio</button>
 			</form>
 			
 			<form id="index" action="/" method = "GET">

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Convenios {
+public class Setores {
 	
 	@Id @NotNull
 	private Integer codigo;
