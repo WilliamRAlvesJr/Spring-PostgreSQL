@@ -8,21 +8,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
-			body {
-			    background-image: url("../images/Fundo.jpg");
-			    background-repeat: no-repeat;
-				background-size: cover;
-			}
 		</style>
 		<title>Sistema Hospital - Quartos</title>
-	    <link href="base.css" type="text/css" rel="stylesheet">
+	    <link href="../base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body background="img_girl.jpg">
 		<div align="center">
         <h1>Quartos</h1>
         <br/>
-			<table border="1">
+			<table border="0">
 				<tr>
 					<td><strong>Código</strong></td>
 					<td><strong>Nome</strong></td>
@@ -32,10 +27,10 @@
 				<c:forEach var="quarto" items="${quartos}">
 					<tr>
 						<form id="excluir" action="/quartos" method="POST" modelAttribute="quartoSelecionado">
-							<td width="10px"><input name="codigo" value="${quarto.codigo}" readonly/></td>
-							<td width="10px"><input name="nome" value="${quarto.nome}" readonly/></td>
-							<td width="10px"><input name="setor" value="${quarto.setor}" readonly/></td>
-							<td width="10px"><input name="equipamento" value="${quarto.equipamento}" readonly/></td>
+							<td><input name="codigo" value="${quarto.codigo}" readonly/></td>
+							<td><input name="nome" value="${quarto.nome}" readonly/></td>
+							<td><input name="setor" value="${quarto.setor}" readonly/></td>
+							<td><input name="equipamento" value="${quarto.equipamento}" readonly/></td>
 							<td style="padding: 7px;">
 								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/quartos/excluir';"/>
 							</td>

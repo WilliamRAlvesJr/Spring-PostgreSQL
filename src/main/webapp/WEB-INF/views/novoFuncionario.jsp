@@ -6,15 +6,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
-			body {
-			    background-image: url("../images/Fundo.jpg");
-			    background-repeat: no-repeat;
-				background-size: cover;
-			}
 		</style>
 		<title>Sistema Hospital - Adicionar/Editar Funcionario</title>
-		<link href="base.css" type="text/css" rel="stylesheet">
-	</head>
+		<link href="../base.css" type="text/css" rel="stylesheet">	</head>
 
 	<body>
 		<div align="center">
@@ -39,8 +33,8 @@
 					</tr>
 					
 					<tr>
-						<td>Telefones: </td>
-						<td><input name="telefones" value="${telefones}"/></td>
+						<td>Telefone: </td>
+						<td><input name="telefone" value="${telefone}"/></td>
 					</tr>
 			
 					<tr>
@@ -50,7 +44,7 @@
 					
 					<tr>
 						<td>Data de Admissão: </td>
-						<td><input name="dtAdmissao" value="${dtAdmissao}"/></td>
+						<td><input type="date" name="dtAdmissao" value="${dtAdmissao}"/></td>
 					</tr>
 					
 					<tr>
@@ -65,6 +59,7 @@
 	        </form>
 	        
 	        <form id="funcionarios" action="/funcionarios" method = "GET">
+				<br />
 				<button type="submit">Funcionarios</button>
 			</form>
 		</div>

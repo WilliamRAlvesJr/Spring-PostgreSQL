@@ -42,9 +42,11 @@ public class PacientesController {
    @PostMapping("/salvar")
    public ModelAndView salvar(@ModelAttribute("pacientes") @Valid Pacientes pacientes, BindingResult bindingResult) {
 	   Pacientes p = new Pacientes();
+	   p.setCtSaude(pacientes.getCtSaude());
 	   p.setCpf(pacientes.getCpf());
 	   p.setNome(pacientes.getNome());
 	   p.setConvenio(pacientes.getConvenio());
+	   p.setTelefone(pacientes.getTelefone());
 	   
 	   ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 	   Validator validator = factory.getValidator();
@@ -67,9 +69,11 @@ public class PacientesController {
    public ModelAndView excluir(@ModelAttribute("pacienteSelecionado") Pacientes paciente) {
 	   Pacientes p = new Pacientes();
 	   if (paciente != null && paciente.getCpf() != null) {
+		   p.setCtSaude(paciente.getCtSaude());
 		   p.setCpf(paciente.getCpf());
 		   p.setNome(paciente.getNome());
 		   p.setConvenio(paciente.getConvenio());
+		   p.setTelefone(paciente.getTelefone());
 	   
 		   repository.delete(p);
 	   }
@@ -95,6 +99,8 @@ public class PacientesController {
 	   modView.addObject("cpf", paciente.getCpf());
 	   modView.addObject("nome", paciente.getNome());
 	   modView.addObject("convenio", paciente.getConvenio());
+	   modView.addObject("telefone", paciente.getTelefone());
+	   modView.addObject("ctSaude", paciente.getCtSaude());
 
 	   return modView;
    }

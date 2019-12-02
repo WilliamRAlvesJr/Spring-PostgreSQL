@@ -1,6 +1,6 @@
 package br.com.william.sisHospital.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@IdClass(Pessoas.class)
-public class Funcionarios extends Pessoas {
+@IdClass(Funcionarios.class)
+public class Funcionarios extends PessoasTY {
 
 	private static final long serialVersionUID = 1L;
 
@@ -24,7 +24,7 @@ public class Funcionarios extends Pessoas {
 	private Integer codigo;
 	
 	@NotNull
-	private LocalDate dtAdmissao;
+	private Date dtAdmissao;
 	
 	@NotNull
 	private Integer setor;

@@ -6,14 +6,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
-			body {
-			    background-image: url("../images/Fundo.jpg");
-			    background-repeat: no-repeat;
-				background-size: cover;
-			}
 		</style>
 		<title>Sistema Hospital - Adicionar/Editar Convênio</title>
-		<link href="base.css" type="text/css" rel="stylesheet">
+		<link href="../base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -45,6 +40,7 @@
 	        </form>
 	        
 	        <form id="convenios" action="/convenios" method = "GET">
+				<br />
 				<button type="submit">Convênios</button>
 			</form>
 		</div>

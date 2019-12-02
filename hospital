@@ -1,26 +1,90 @@
 ﻿--DROP TYPE IF EXISTS Pessoa_TY;
 CREATE TYPE Pessoa_TY AS (
-	cpf VARCHAR(11),
-	nome VARCHAR(30)
+	cpf VARCHAR(11) UNIQUE,
+	nome VARCHAR(30),
+	telefone VARCHAR(13)
 );
 --DROP TABLE IF EXISTS Pessoas;
 CREATE TABLE Pessoas of Pessoa_TY (PRIMARY KEY (cpf));
-SELECT * FROM Pessoas
+SELECT * FROM Pessoas;
+
 
 --DROP TYPE IF EXISTS Convenio_TY;
 CREATE TYPE Convenio_TY AS (
-	codigo INT,
+	codigo INTEGER,
 	nome VARCHAR(30)
 );
 --DROP TABLE IF EXISTS Convenios;
 CREATE TABLE Convenios of Convenio_TY (PRIMARY KEY (codigo));
-SELECT * FROM Convenios
+SELECT * FROM Convenios;
+
 
 --DROP TABLE IF EXISTS Pacientes;
 CREATE TABLE Pacientes (
-	convenio INT REFERENCES Convenios (codigo)
+	ct_saude INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	convenio INTEGER REFERENCES Convenios (codigo)
 ) INHERITS(Pessoas);
-SELECT * FROM Pacientes
+SELECT * FROM Pacientes;
 
+
+--DROP TYPE IF EXISTS Setor_TY;
+CREATE TYPE Setor_TY AS (
+	codigo INTEGER,
+	nome VARCHAR(30)
+);
+--DROP TABLE IF EXISTS Setores;
+CREATE TABLE Setores of Setor_TY (PRIMARY KEY (codigo));
+SELECT * FROM Setores;
+
+
+--DROP TYPE IF EXISTS Equipamento_TY;
+CREATE TYPE Equipamento_TY AS (
+	codigo INTEGER,
+	nome VARCHAR(30)
+);
+--DROP TABLE IF EXISTS Equipamentos;
+CREATE TABLE Equipamentos of Equipamento_TY (PRIMARY KEY (codigo));
+SELECT * FROM Equipamentos;
+
+
+--DROP TABLE IF EXISTS Quartos;
+CREATE TABLE Quartos (
+	codigo INTEGER PRIMARY KEY,
+	nome VARCHAR NOT NULL,
+	setor INTEGER REFERENCES Setores (codigo) NOT NULL,
+	equipamento INTEGER REFERENCES Equipamentos (codigo) NOT NULL
+);
+SELECT * FROM Quartos;
+
+
+--DROP TABLE IF EXISTS Funcionarios;
+CREATE TABLE Funcionarios (
+	codigo INTEGER PRIMARY KEY,
+	nome VARCHAR(30) NOT NULL,
+	dt_admissao DATE NOT NULL,
+	setor INTEGER REFERENCES Setores (codigo) NOT NULL
+) INHERITS(Pessoas);
+INSERT INTO Funcionarios VALUES ('12345678909', 'João', '3281555', 1, '1971-07-13', 1);
+SELECT * FROM Funcionarios;
+
+
+--DROP TABLE IF EXISTS Medicos;
+CREATE TABLE Medicos (
+	crm INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	especialidade VARCHAR
+) INHERITS(Funcionarios);
+SELECT * FROM Medicos;
+
+
+--DROP TABLE IF EXISTS Tratamentos;
+CREATE TABLE Tratamentos (
+	medico INTEGER REFERENCES Medicos (crm) NOT NULL,
+	paciente INTEGER REFERENCES Pacientes (ct_saude) NOT NULL,
+	quarto INTEGER REFERENCES Quartos (codigo) NOT NULL,
+	equipamento INTEGER REFERENCES Equipamentos (codigo) NOT NULL,
+	dt_entrada DATE NOT NULL,
+	dt_saida  DATE
+);
+SELECT * FROM Tratamentos
 
 

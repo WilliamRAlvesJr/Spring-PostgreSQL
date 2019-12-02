@@ -9,29 +9,31 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
 		</style>
-		<title>Sistema Hospital - Setores</title>
+		<title>Sistema Hospital - Pessoas</title>
 	    <link href="../base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body background="img_girl.jpg">
 		<div align="center">
-        <h1>Setores</h1>
+        <h1>Pessoas</h1>
         <br/>
 			<table border="0">
 				<tr>
-					<td><strong>Código</strong></td>
+					<td><strong>CPF</strong></td>
 					<td><strong>Nome</strong></td>
+					<td><strong>Telefone</strong></td>
 				</tr>
-				<c:forEach var="setor" items="${setores}">
+				<c:forEach var="pessoas" items="${pessoas}">
 					<tr>
-						<form id="excluir" action="/setores" method="POST" modelAttribute="setorSelecionado">
-							<td><input name="codigo" value="${setor.codigo}" readonly/></td>
-							<td><input name="nome" value="${setor.nome}" readonly/></td>
+						<form id="excluir" action="/pessoas" method="POST" modelAttribute="pessoaSelecionado">
+							<td><input name="cpf" value="${pessoas.cpf}" readonly/></td>
+							<td><input name="nome" value="${pessoas.nome}" readonly/></td>
+							<td><input name="telefone" value="${pessoas.telefone}" readonly/></td>
 							<td style="padding: 7px;">
-								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/setores/excluir';"/>
+								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/pessoas/excluir';"/>
 							</td>
 							<td style="padding: 7px;">
-								<input type="image" alt="submit" src="../images/Inserir.png" id="editar" type="submit" onclick="form.action='/setores/editar-setor';"/>
+								<input id="editor" type="button" value="Inativo" style="border: 0px; background: bottom; color: black;"/>
 							</td>
 						</form>
 					</tr>
@@ -39,8 +41,8 @@
 			</table>
 			<br/>
 
-			<form id="novoSetor" action="/setores/novo-setor" method = "GET">
-				<button type="submit">Novo Setor</button>
+			<form id="novoPessoa" action="/pessoas/novo-pessoa" method = "GET">
+				<button disabled="disabled">Nova Pessoa</button>
 			</form>
 			
 			<form id="index" action="/" method = "GET">

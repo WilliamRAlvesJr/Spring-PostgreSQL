@@ -21,6 +21,6 @@ public class Equipamentos {
 
 	@NotEmpty
 	private String nome;
-	
+
 }
 

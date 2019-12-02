@@ -8,32 +8,31 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
-			body {
-			    background-image: url("../images/Fundo.jpg");
-			    background-repeat: no-repeat;
-				background-size: cover;
-			}
 		</style>
 		<title>Sistema Hospital - Pacientes</title>
-	    <link href="base.css" type="text/css" rel="stylesheet">
+	    <link href="../base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body background="img_girl.jpg">
 		<div align="center">
         <h1>Pacientes</h1>
         <br/>
-			<table border="1">
+			<table border="0">
 				<tr>
+					<td><strong>Ct. Saúde</strong></td>
 					<td><strong>CPF</strong></td>
 					<td><strong>Nome</strong></td>
+					<td hidden="true"><strong>Telefone</strong></td>
 					<td><strong>Convênio</strong></td>
 				</tr>
 				<c:forEach var="paciente" items="${pacientes}">
 					<tr>
 						<form id="excluir" action="/pacientes" method="POST" modelAttribute="pacienteSelecionado">
-							<td width="10px"><input name="cpf" value="${paciente.cpf}" readonly/></td>
-							<td width="10px"><input name="nome" value="${paciente.nome}" readonly/></td>
-							<td width="10px"><input name="convenio" value="${paciente.convenio}" readonly/></td>
+							<td><input name="ctSaude" value="${paciente.ctSaude}" readonly/></td>
+							<td><input name="cpf" value="${paciente.cpf}" readonly/></td>
+							<td><input name="nome" value="${paciente.nome}" readonly/></td>
+							<td><input name="convenio" value="${paciente.convenio}" readonly/></td>
+							<td><input hidden="true" name="telefone" value="${paciente.telefone}" readonly/></td>
 							<td style="padding: 7px;">
 								<input id="excluir" type="image" alt="submit" src="../images/Deletar.png" onclick="form.action='/pacientes/excluir';"/>
 							</td>

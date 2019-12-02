@@ -6,14 +6,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
-			body {
-			    background-image: url("../images/Fundo.jpg");
-			    background-repeat: no-repeat;
-				background-size: cover;
-			}
 		</style>
 		<title>Sistema Hospital - Adicionar/Editar Paciente</title>
-		<link href="base.css" type="text/css" rel="stylesheet">
+		<link href="../base.css" type="text/css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -27,6 +22,11 @@
         	<br />
 	        <form id="pacientes" action="/pacientes/salvar" method = "POST" modelAttribute="pacientes">
 				<table border="0" cellpadding="10">
+
+					<tr>
+						<td>Ct. Saúde: </td>
+						<td><input name="ctSaude" value="${ctSaude}"/></td>
+					</tr>
 					
 					<tr>
 						<td>CPF: </td>
@@ -36,6 +36,11 @@
 					<tr>
 						<td>Nome: </td>
 						<td><input name="nome" value="${nome}"/></td>
+					</tr>
+					
+					<tr>
+						<td>Telefone: </td>
+						<td><input name="telefone" value="${telefone}"/></td>
 					</tr>
 					
 					<tr>
@@ -50,6 +55,7 @@
 	        </form>
 	        
 	        <form id="pacientes" action="/pacientes" method = "GET">
+				<br />
 				<button type="submit">Paciêntes</button>
 			</form>
 		</div>

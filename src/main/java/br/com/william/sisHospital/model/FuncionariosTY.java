@@ -1,27 +1,33 @@
 package br.com.william.sisHospital.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@IdClass(PessoasTY.class)
-public class Pacientes extends PessoasTY {
-	
+@MappedSuperclass
+public class FuncionariosTY extends PessoasTY {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id @NotNull
-	private Integer ctSaude;
+	private Integer codigo;
 	
 	@NotNull
-	private Integer convenio;
+	private Date dtAdmissao;
+	
+	@NotNull
+	private Integer setor;
+
 }
 

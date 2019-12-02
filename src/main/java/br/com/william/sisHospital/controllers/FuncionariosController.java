@@ -44,11 +44,11 @@ public class FuncionariosController {
 	   Funcionarios f = new Funcionarios();
 	   f.setCpf(funcionarios.getCpf());
 	   f.setCodigo(funcionarios.getCodigo());
-	   f.setTelefones(funcionarios.getTelefones());
+	   f.setTelefone(funcionarios.getTelefone());
 	   f.setNome(funcionarios.getNome());
 	   f.setDtAdmissao(funcionarios.getDtAdmissao());
 	   f.setSetor(funcionarios.getSetor());
-	   
+
 	   ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 	   Validator validator = factory.getValidator();
 	   Set<ConstraintViolation<Funcionarios>> violations = validator.validate(f);
@@ -72,7 +72,7 @@ public class FuncionariosController {
 	   if (funcionario != null && funcionario.getCodigo() != null) {
 		   f.setCpf(funcionario.getCpf());
 		   f.setNome(funcionario.getNome());
-		   f.setTelefones(funcionario.getTelefones());
+		   f.setTelefone(funcionario.getTelefone());
 		   f.setCodigo(funcionario.getCodigo());
 		   f.setNome(funcionario.getNome());
 		   f.setDtAdmissao(funcionario.getDtAdmissao());
@@ -101,9 +101,9 @@ public class FuncionariosController {
 	   ModelAndView modView = novoFuncionario();
 	   modView.addObject("cpf", funcionario.getCpf());
 	   modView.addObject("codigo", funcionario.getCodigo());
-	   modView.addObject("telefones", funcionario.getTelefones());
+	   modView.addObject("telefone", funcionario.getTelefone());
 	   modView.addObject("nome", funcionario.getNome());
-	   modView.addObject("dtAdminissao", funcionario.getDtAdmissao());
+	   modView.addObject("dtAdmissao", funcionario.getDtAdmissao());
 	   modView.addObject("setor", funcionario.getSetor());
 
 	   return modView;

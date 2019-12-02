@@ -70,7 +70,7 @@
 					<td>
 						<figure>
 							<figcaption><strong>Médicos</strong></figcaption> 
-							<form id="quartos" action="/quartos" method = "GET">
+							<form id="medicos" action="/medicos" method = "GET">
 								<input class="modules" type="image" src="images/Funcionario.png" alt="Submit">
 							</form>
 						</figure>
@@ -78,7 +78,7 @@
 					<td>
 						<figure>
 							<figcaption><strong>Tratamento</strong></figcaption> 
-							<form id="quartos" action="/quartos" method = "GET">
+							<form id="tratamentos" action="/tratamentos" method = "GET">
 								<input class="modules" type="image" src="images/Tratamento.png" alt="Submit">
 							</form>
 						</figure>
@@ -88,7 +88,7 @@
 					<td>
 						<figure>
 							<figcaption><strong>Pessoas no Hospital</strong></figcaption> 
-							<form id="quartos" action="/quartos" method = "GET">
+							<form id="pessoas" action="/pessoas" method = "GET">
 								<input class="modules" type="image" src="images/Hospital.png" alt="Submit">
 							</form>
 						</figure>
